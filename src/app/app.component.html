@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Menú</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <button class="nav-link active" aria-current="page" routerLink="inicio">Inicio</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link active" aria-current="page" routerLink="galeria">Galería</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link active" aria-current="page" routerLink="servicios">Servicios</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+</nav>
+<ng-content></ng-content>
+
+
+<router-outlet></router-outlet>
