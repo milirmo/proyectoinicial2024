@@ -6,13 +6,24 @@ import { ServiciosComponent } from './componentes/servicios/servicios.component'
 
 const routes: Routes = [
 
-  {path: "", component: InicioComponent},
+  /*{path: "", component: InicioComponent},
 
   {path: "inicio", component: InicioComponent},
 
   {path: "galeria", component: GaleriaComponent},
 
-  {path: "servicios", component: ServiciosComponent},
+  {path: "servicios", component: ServiciosComponent},*/
+
+
+  //ruta por defecto en la inicialización
+  {
+    path: "", component: InicioComponent
+  },
+  
+  //llamar al modulo inicio
+  {
+    path: "", loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
+  },
 
 ];
 
