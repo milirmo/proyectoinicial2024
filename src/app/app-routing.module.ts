@@ -15,12 +15,12 @@ const routes: Routes = [
   {path: "servicios", component: ServiciosComponent},*/
 
 
-  //ruta por defecto en la inicialización
+  //ruta por defecto en la inicialización (se muestra mientras carge el modulo)
   {
     path: "", component: InicioComponent
   },
   
-  //llamar al modulo inicio
+  //ruta que vincula al módulo de inicio y todo su contenido
   {
     path: "", loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
   },

@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class GaleriaComponent {
 
   tarjetas= [1,2,3]
-
+  
 }
