@@ -3,4 +3,5 @@ export interface Animal {
     nombre: string;
     edad: number;
     raza: string;
+    tamaño: string;
 }
