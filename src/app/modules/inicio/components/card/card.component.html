@@ -1,21 +1,38 @@
-<div class="card">
+<div class="container">
 
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Salchicha Playera</mat-card-title>
-          <mat-card-subtitle>Perro re capo mal, súper preparado pa la playita.</mat-card-subtitle>
-        </mat-card-header>
-        <img id="imagensalchi" mat-card-image src="https://www.fanaticosdelasmascotas.cl/wp-content/uploads/2024/03/imagen_destacada-3.jpg" alt="salchicha playera" width="500px">
-        <mat-card-content>
-          <p>
-           A los salchis les encanta de la playa, y más si les pones traje de baño y flotador.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>Me gusta</button>
-          <button mat-button>Compartir</button>
-        </mat-card-actions>
-      </mat-card>
+  <div class="row">
+
+    <h1>Inicio</h1>
+
+    <div class="col">
+
+      <!--NG FOR: para repetir objetos de la interfaz "Animal"-->
+        <div *ngFor="let i of info" class="contenido">
+          <div class="card">
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{i.nombre}}</mat-card-title>
+                  <mat-card-subtitle>{{i.raza}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{i.imagen}}" alt="{{i.alt}}">
+                <mat-card-content>
+                  <p>
+                    edad: {{i.edad}}
+                    tamano: {{i.tamano}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>Me gusta</button>
+                  <button mat-button>Compartir</button>
+                </mat-card-actions>
+            </mat-card>
+        
+          </div>
+        </div>
+    </div>
+
+  </div>
 
 </div>

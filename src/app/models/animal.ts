@@ -3,5 +3,7 @@ export interface Animal {
     nombre: string;
     edad: number;
     raza: string;
-    tamaño: string;
+    tamano: string;
+    imagen: string;
+    alt: string;
 }

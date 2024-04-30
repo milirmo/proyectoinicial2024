@@ -19,15 +19,15 @@ import {MatCardModule} from '@angular/material/card';
     CardComponent
   ],
 
-  //importa desde afuera
+  //importa desde afuera (en éste caso angular material)
   imports: [
     CommonModule,
     InicioRoutingModule,
     MatButtonModule,
     MatCardModule
   ],
-  
-  //exporta a todo el proyecto
+
+  //exporta a todo el proyecto (resto de la página)
   exports: [
     MatButtonModule,
     MatCardModule
