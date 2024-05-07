@@ -8,9 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-import { InicioComponent } from './componentes/inicio/inicio.component';
-import { GaleriaComponent } from './componentes/galeria/galeria.component';
-import { ServiciosComponent } from './componentes/servicios/servicios.component';
+// import { GaleriaComponent } from './componentes/galeria/galeria.component';
+// import { ServiciosComponent } from './componentes/servicios/servicios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //solo importamos componentes globales (los q aparecen en toda la página)
@@ -19,9 +18,8 @@ import { SharedModule } from './modules/shared/components/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
-    GaleriaComponent,
-    ServiciosComponent,
+    // GaleriaComponent,
+    // ServiciosComponent,
   ],
   imports: [
     BrowserModule,
