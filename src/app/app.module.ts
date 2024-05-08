@@ -7,9 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 //archivo component general
 import { AppComponent } from './app.component';
 
-
-// import { GaleriaComponent } from './componentes/galeria/galeria.component';
-// import { ServiciosComponent } from './componentes/servicios/servicios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //solo importamos componentes globales (los q aparecen en toda la página)

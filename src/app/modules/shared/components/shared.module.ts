@@ -6,8 +6,9 @@ import { FooterComponent } from './footer/footer.component';
 //importamos toolbar (barra de herramientas) desde AM
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatToolbarModule} from '@angular/material/toolbar'; //barra de herramientas
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import {MatMenuModule} from '@angular/material/menu'; //menu para productos
 
 
 
@@ -21,7 +22,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule
 
   ], 
   exports:[
@@ -29,7 +31,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     FooterComponent,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }

@@ -20,34 +20,34 @@ this.info = [
         {
           //objeto1
           id: "",
-          nombre: "Gato panzón",
+          nombre: "Gato Siberiano: Walter",
           edad: 5,
-          raza: "Gato panzon",
-          tamano: "0,5 metro(s)",
-          imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnaQqRwvwUknoJoBh5qpL7J9mO8loTFL9k-ZxC9rqECA&s",
-          alt: "Imagen de gato panzon",
+          raza: "Siberiano",
+          tamano: "0,4 metro(s): 40cm",
+          imagen: "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-06Siberian20Forest.2.jpg?itok=aWD1dDmr",
+          alt: "Imagen de gato Siberiano",
         },
 
         {
           //objeto2
         id: "",
-        nombre: "Perro panzón",
+        nombre: "Perra Golden: Laura",
         edad: 1,
-        raza: "Perro panzon",
-        tamano: "0,5 metro(s)",
-        imagen: "https://heraldodemexico.com.mx/u/fotografias/m/2021/6/12/f638x638-383390_441557_5050.jpg",
-        alt: "Imagen de perro panzon",
+        raza: "Golden Retriever",
+        tamano: "0,6 metro(s): 60cm",
+        imagen: "https://d.newsweek.com/en/full/2297448/golden-retriever.jpg?w=1600&h=1600&q=88&f=55e676b03801944abe9791eff4272a2e",
+        alt: "Imagen de perro Siberiano",
         },
 
         {
           //objeto3
         id: "",
-        nombre: "Pato panzón",
+        nombre: "Pez dorado: Pancho",
         edad: 3,
-        raza: "Pato panzon",
-        tamano: "0,5 metro(s)",
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmoYHA4b5scGEnRjd-9NbBCNMfWqb1XnDOcva4TI6W8Q&s",
-        alt: "Imagen de pato panzon",
+        raza: "Pez Dorado",
+        tamano: "0,04 metro(s): 4cm",
+        imagen: "https://img.freepik.com/fotos-premium/pez-dorado-nadando-su-acuario_863013-125142.jpg",
+        alt: "Imagen de pez Dorado",
         }
     ]
   }

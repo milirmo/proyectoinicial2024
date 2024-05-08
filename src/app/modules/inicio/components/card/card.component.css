@@ -9,7 +9,7 @@ h1{
 }
 
 .contenido{
-    width: 300px;
+    width: 350px;
     /* "inline-block" hace que las tarjetas (o el contenido q haya) se pongan una al lado de la otra. */
     display: inline-block;
     padding: 15px;
@@ -18,9 +18,13 @@ h1{
 }
 
 p{
-    padding: 5px;
+    padding: 10px;
 }
 
-mat-card-title{
-    color: black;
+.datos{
+    color: rgb(117, 69, 13);
+}
+
+mat-card{
+    background-color:bisque;
 }

@@ -2,34 +2,32 @@
 
   <div class="row">
 
-    <h1>Inicio</h1>
+    <h1>¡Todo lo que tus mascotas necesitan!</h1>
 
     <div class="col">
 
       <!--NG FOR: para repetir objetos de la interfaz "Animal"-->
         <div *ngFor="let i of info" class="contenido">
-          <div class="card">
-
             <mat-card class="example-card">
+
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{i.nombre}}</mat-card-title>
-                  <mat-card-subtitle>{{i.raza}}</mat-card-subtitle>
+                  <mat-card-title class="datos">{{i.nombre}}</mat-card-title>
+                  <mat-card-subtitle class="datos">{{i.raza}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image src="{{i.imagen}}" alt="{{i.alt}}">
-                <mat-card-content>
+                <mat-card-content class="datos">
                   <p>
-                    edad: {{i.edad}}
-                    tamano: {{i.tamano}}
+                    Edad: {{i.edad}} <br>
+                    Tamaño: {{i.tamano}}
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>Me gusta</button>
-                  <button mat-button>Compartir</button>
+                  <button mat-button class="datos">Me gusta</button>
+                  <button mat-button class="datos">Ver alimentación</button>
                 </mat-card-actions>
+
             </mat-card>
-        
-          </div>
         </div>
     </div>
 

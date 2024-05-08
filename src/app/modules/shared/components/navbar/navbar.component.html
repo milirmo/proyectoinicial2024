@@ -4,7 +4,16 @@
     </button>
 
     <!--boton para dirigirse a la página inicio (luego se debe importar en shared.module.ts)-->
-    <button mat-button routerLink="/inicio">inicio</button>
+    <button mat-button routerLink="/inicio">Inicio</button>
+
+    <!--boton menu desplegable (para ir a los productos) -->
+    <button mat-button [matMenuTriggerFor]="productos">Productos</button>
+    <mat-menu #productos="matMenu">
+    <button mat-menu-item routerLink="productos">Todos nuestros productos</button>
+    <button mat-menu-item routerLink="alimentacion">Alimentación</button>
+    <button mat-menu-item routerLink="indumentaria">Indumentaria</button>
+    <button mat-menu-item routerLink="juguete">Juguetes</button>
+    </mat-menu>
 
     <!--botones con iconos-->
     <span class="example-spacer"></span>

@@ -5,15 +5,6 @@ import { InicioComponent } from './modules/inicio/page/inicio/inicio.component';
 
 const routes: Routes = [
 
-  /*{path: "", component: InicioComponent},
-
-  {path: "inicio", component: InicioComponent},
-
-  {path: "galeria", component: GaleriaComponent},
-
-  {path: "servicios", component: ServiciosComponent},*/
-
-
   //ruta por defecto en la inicialización (se muestra mientras carge el modulo)
   {
     path: "", component: InicioComponent
@@ -22,6 +13,11 @@ const routes: Routes = [
   //ruta que vincula al módulo de inicio y todo su contenido
   {
     path: "", loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
+  },
+  
+  //ruta que vincula al módulo de productos y todo su contenido
+  {
+    path: "", loadChildren:()=>import('./modules/productos/productos.module').then(m=>m.ProductosModule)
   },
 
 ];
