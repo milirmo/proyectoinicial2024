@@ -3,7 +3,7 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <!--boton para dirigirse a la página inicio (luego se debe importar en shared.module.ts)-->
+    <!--boton para dirigirse a la página inicio (luego se debe importar en shared.module.ts) -->
     <button mat-button routerLink="/inicio">Inicio</button>
 
     <!--boton menu desplegable (para ir a los productos) -->
@@ -15,13 +15,21 @@
     <button mat-menu-item routerLink="juguete">Juguetes</button>
     </mat-menu>
 
-    <!--botones con iconos-->
     <span class="example-spacer"></span>
+
+    <!--inicio de sesión y registro d eun nuevo usuario -->
+    <button mat-button [matMenuTriggerFor]="usuario">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #usuario="matMenu">
+    <button mat-menu-item routerLink="registro">Registrarse</button>
+    <button mat-menu-item routerLink="inicio-sesion">Iniciar sesión</button>
+    </mat-menu>
+
+    <!--carrito (proximamente)-->
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+      <mat-icon>favorite-icon</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+
 </mat-toolbar>
   

@@ -6,11 +6,10 @@ import { FooterComponent } from './footer/footer.component';
 //importamos toolbar (barra de herramientas) desde AM
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar'; //barra de herramientas
+import {MatToolbarModule} from '@angular/material/toolbar'; //barra de herramientas y footer
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import {MatMenuModule} from '@angular/material/menu'; //menu para productos
-
-
+import {MatGridListModule} from '@angular/material/grid-list'; //gird para separar el footer
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import {MatMenuModule} from '@angular/material/menu'; //menu para productos
     MatButtonModule,
     MatToolbarModule,
     AppRoutingModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule
 
   ], 
   exports:[
@@ -32,7 +32,8 @@ import {MatMenuModule} from '@angular/material/menu'; //menu para productos
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule
   ]
 })
 export class SharedModule { }

@@ -20,6 +20,11 @@ const routes: Routes = [
     path: "", loadChildren:()=>import('./modules/productos/productos.module').then(m=>m.ProductosModule)
   },
 
+  //ruta que vincula al módulo de autentificación y todo su contenido
+  {
+    path: "", loadChildren:()=>import('./modules/autentificacion/autentificacion.module').then(m=>m.AutentificacionModule)
+  },
+
 ];
 
 @NgModule({
