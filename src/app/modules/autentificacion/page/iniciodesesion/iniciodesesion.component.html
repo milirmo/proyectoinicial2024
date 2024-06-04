@@ -1,1 +1,37 @@
-<p>iniciodesesion works!</p>
+<div class="container iniciosesion">
+    <div class="row">
+
+        <h1>¡Iniciá sesión!</h1>
+
+        <i class="material-icons" style="font-size: 200px;"> person </i>
+
+
+        <!--mail de usuario-->
+        <p>
+            <mat-form-field appearance="fill" required>
+              <mat-label>Correo electrónico</mat-label>
+              <input matInput placeholder="Ej: Pepa_Popón">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Ingrese correo electrónico</mat-hint>
+            </mat-form-field>
+        </p>
+
+
+        <!--contraseña-->
+        <p>
+          <mat-form-field>
+            <mat-label>Ingresa contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" #input minlength="6">
+            <button class="iconocontraseña" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint aling="start">6/{{input.value.length}}</mat-hint>
+        </mat-form-field>
+        </p>
+
+        
+        <!--boton guardar inicio sesión-->
+        <button class="boton" mat-raised-button color="primary" (click)="inicioSesionUsuarios()">Iniciar sesión</button>
+
+    </div>
+</div>

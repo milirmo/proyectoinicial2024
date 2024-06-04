@@ -5,6 +5,15 @@ import { AutentificacionRoutingModule } from './autentificacion-routing.module';
 import { RegistroComponent } from './page/registro/registro.component';
 import { IniciodesesionComponent } from './page/iniciodesesion/iniciodesesion.component';
 
+//importaciones de form field (input)
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+
+//importamos componente raíz de Angular
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +22,26 @@ import { IniciodesesionComponent } from './page/iniciodesesion/iniciodesesion.co
   ],
   imports: [
     CommonModule,
-    AutentificacionRoutingModule
+    AutentificacionRoutingModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule, //componente raíz de Angular importado
+    MatSelectModule
+  ],
+
+  //exportamos componentes del modulo (registro e inicio de sesion)
+  exports: [
+    RegistroComponent,
+    IniciodesesionComponent,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule, //componente raíz de Angular exportado
+    MatSelectModule
+    
   ]
 })
 export class AutentificacionModule { }

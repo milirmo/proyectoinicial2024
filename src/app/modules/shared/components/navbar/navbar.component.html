@@ -17,18 +17,18 @@
 
     <span class="example-spacer"></span>
 
-    <!--inicio de sesión y registro d eun nuevo usuario -->
+    <!--inicio de sesión y registro de un nuevo usuario -->
     <button mat-button [matMenuTriggerFor]="usuario">
       <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #usuario="matMenu">
-    <button mat-menu-item routerLink="registro">Registrarse</button>
-    <button mat-menu-item routerLink="inicio-sesion">Iniciar sesión</button>
-    </mat-menu>
+     </button>
+      <mat-menu #usuario="matMenu">
+     <button mat-menu-item routerLink="registro">Registrarse</button>
+     <button mat-menu-item routerLink="inicio-sesion">Iniciar sesión</button>
+     </mat-menu>
 
     <!--carrito (proximamente)-->
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite-icon</mat-icon>
+    <button mat-icon-button class="example-icon carrito" aria-label="Example icon-button with heart icon">
+      <mat-icon>shopping_cart</mat-icon>
     </button>
 
 </mat-toolbar>
