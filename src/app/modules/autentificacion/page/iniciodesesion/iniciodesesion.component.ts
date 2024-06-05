@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario'; //importamos la interfaz de Usuario de models
+import { Usuario } from 'src/app/models/usuario'; //importamos la interfaz Usuario de models
 
 @Component({
   selector: 'app-iniciodesesion',
@@ -7,40 +7,93 @@ import { Usuario } from 'src/app/models/usuario'; //importamos la interfaz de Us
   styleUrls: ['./iniciodesesion.component.css']
 })
 export class IniciodesesionComponent {
-  hide= true;
+  hide = true;
 
+  //definimos colección local de Usuarios
+  public coleccionUsuariosLocales: Usuario[];
 
-//importamos interfaz Usuario (inicializar)
-perfiles: Usuario = {
-    uid:'',
-    nombre:'',
-    apellido:'',
-    email:'',
-    rol:'',
-    password:''
-}
+  constructor() {
 
-//creamos colección de usuarios, del tipo usuario, y lo definimos para que reciba arreglos
-coleccionPerfiles: Usuario[] = [];
+    //creamos colección LOCAL de usuarios registrados
+    this.coleccionUsuariosLocales = [
+      {
+        uid: '',
+        nombre: 'Milagros',
+        apellido: 'Romero',
+        email: 'milagritosromero.mr@gmail.com',
+        rol: 'Administrador',
+        password: 'militata1'
+      },
 
-//función para iniciar sesión de nuevos usuarios
-iniciodeSesionUsuarios(){
+      {
+        uid: '',
+        nombre: 'Angie',
+        apellido: 'Diaz',
+        email: 'angiediaz@gmail.com',
+        rol: 'Visitante',
+        password: 'angiediaz1221'
+      },
 
-  //creamos constante para guardar la info. que ingrese el usuario
-  const perfiles = {
-    uid: this.perfiles.uid,
-    email: this.perfiles.email,
-    password: this.perfiles.password
+      {
+        uid: '',
+        nombre: 'Guadalupe',
+        apellido: 'Araya',
+        email: 'gguaradaa@gmail.com',
+        rol: 'Administrador',
+        password: 'guadaaa77'
+      }
+    ]
   }
 
-  //agregamos la nueva info (como nuevo objeto) a la colección de usuarios
-  this.coleccionPerfiles.push(perfiles)
+  //definimos interfaz Usuario (inicializar)
+  usuarios: Usuario = {
+    uid: '',
+    nombre: '',
+    apellido: '',
+    email: '',
+    rol: '',
+    password: ''
+  }
 
-  //utilizamos localStorange para usar un arreglo de éste componente en otro componente
-  const comparar = localStorange.getItem('')
+  //función para iniciar sesión de nuevos usuarios
+  inicioSesion() {
+    const credenciales = {
+      uid: this.usuarios.uid,
+      nombre: this.usuarios.nombre,
+      apellido: this.usuarios.apellido,
+      email: this.usuarios.email,
+      rol: this.usuarios.rol,
+      password: this.usuarios.password
+    }
 
-  //mostrar el contenido de las credenciales de registro en la consola del navegador
-  console.log(perfiles)
-  console.log(this.coleccionPerfiles)
-}
+    //repetitiva para recorrer la coleccion de usuarios locales
+    for(let i=0; i<=this.coleccionUsuariosLocales.length; i++){
+
+      //usuariolocal correspond a esa posición de la colección en específico
+      const usuariolocal = this.coleccionUsuariosLocales[i];
+
+      //condicional para verificar la existencia del usuario ingresado en la colección
+      if(usuariolocal.nombre === credenciales.nombre && usuariolocal.apellido === credenciales.apellido && usuariolocal.email === credenciales.email && usuariolocal.rol === credenciales.rol && usuariolocal.password === credenciales.password){
+        //informamos al ususario que todo salió correctamente
+        alert("¡Inicio exitoso!");
+        break; //para parar la función
+      } else{
+        alert("Algo salió mal...")
+      }
+    }
+
+    this.limpiarInputs();
+  }
+
+  //función para vaciar los inputs del formulario
+  limpiarInputs(){
+    const inputs= {
+      uid: this.usuarios.uid= '',
+      nombre: this.usuarios.nombre= '',
+      apellido: this.usuarios.apellido= '',
+      email: this.usuarios.email= '',
+      rol: this.usuarios.rol= '',
+      password: this.usuarios.password= ''
+    }
+  }
 }

@@ -42,6 +42,25 @@ export class RegistroComponent {
     //agregamos la nueva info (como nuevo objeto) a la colección de usuarios
     this.coleccionUsuarios.push(credenciales)
 
+    //llamar al limpiarInputs para ejecutarla
+    this.limpiarInputs();
+
+    //utilizo localstorange para almacenar la info de usuarios
+    localStorage.setItem(this.usuarios.email, JSON.stringify(credenciales));
+
+    alert("¡Registro completado! Bienvenid@.")
+  }
+
+  //función para vaciar los inputs del formulario
+  limpiarInputs(){
+    const inputs= {
+      uid: this.usuarios.uid= '',
+      nombre: this.usuarios.nombre= '',
+      apellido: this.usuarios.apellido= '',
+      email: this.usuarios.email= '',
+      rol: this.usuarios.rol= '',
+      password: this.usuarios.password= ''
+    }
   }
 
 }
