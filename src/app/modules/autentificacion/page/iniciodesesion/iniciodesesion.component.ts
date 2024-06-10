@@ -38,9 +38,9 @@ export class IniciodesesionComponent {
         uid: '',
         nombre: 'Guadalupe',
         apellido: 'Araya',
-        email: 'gguaradaa@gmail.com',
+        email: 'guadaaraya@gmail.com',
         rol: 'Administrador',
-        password: 'guadaaa77'
+        password: 'guada77'
       }
     ]
   }
@@ -87,7 +87,7 @@ export class IniciodesesionComponent {
 
   //función para vaciar los inputs del formulario
   limpiarInputs(){
-    const inputs= {
+    const inputs = {
       uid: this.usuarios.uid= '',
       nombre: this.usuarios.nombre= '',
       apellido: this.usuarios.apellido= '',

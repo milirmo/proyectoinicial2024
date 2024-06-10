@@ -1,13 +1,25 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
 
+//importamos servicio de autentificación
+import { AuthService } from '../../service/auth.service';
+//importamos componente de rutas de angular
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+
   hide = true;
+
+  //importaciones de interfaz 'Usuario'
+  constructor(
+    public servicioAuth: AuthService,
+    public servicioRutas: Router
+  ){}
 
   //importamos interfaz Usuario (inicializar)
   usuarios: Usuario = {
@@ -27,8 +39,9 @@ export class RegistroComponent {
 
 
   //función para registro de nuevos usuarios
-  registrarUsuarios(){
-
+  async registrarUsuarios(){
+     
+    /* COMENTO CONSTANTE DE CREDENCIALES
     //creamos constante para guardar la info. que ingrese el usuario
     const credenciales = {
       uid: this.usuarios.uid,
@@ -37,10 +50,31 @@ export class RegistroComponent {
       email: this.usuarios.email,
       rol: this.usuarios.rol,
       password: this.usuarios.password
+    }*/
+
+    const credenciales = {
+      email: this.usuarios.email,
+      password: this.usuarios.password,
     }
 
+    const rta = await this.servicioAuth.registrar(credenciales.email, credenciales.password)
+
+    //el metodo THEN es una promesa que devuelve el mismo valor si todo sale bien
+    .then (rta => {
+      alert("¡Registro exitoso! :)")
+
+      this.servicioRutas.navigate(['/inicio']);
+    })
+
+    //el metodo catch captura una falla y devuelve un error cuando la promesa salga mal
+    .catch(error => {
+      alert("Algo salió mal al intentar registrar el nuevo usuario :( \n"+error); // "\n"+error)" para mostrar el error ocurrido
+    })
+
+    /* COMENTO PUSH DE CREDENCIALES
     //agregamos la nueva info (como nuevo objeto) a la colección de usuarios
     this.coleccionUsuarios.push(credenciales)
+    */
 
     //llamar al limpiarInputs para ejecutarla
     this.limpiarInputs();

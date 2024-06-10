@@ -12,17 +12,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //solo importamos componentes globales (los q aparecen en toda la página)
 import { SharedModule } from './modules/shared/components/shared.module';
 
+// FIREBASE  --> importamos HERRAMIENTAS de la Base de Datos
+import { environment } from 'src/environments/environment'; //vincula la BD con la App
+import { AngularFireModule } from '@angular/fire/compat'; //trabaja con las colecciones de interfaces
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'; //trabaja con la autentificación
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'; //trabaja con imágenes y archivos
+
+
 @NgModule({
   declarations: [
-    AppComponent,
-    // GaleriaComponent,
-    // ServiciosComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule //importamos el shared
+    SharedModule, //importamos el shared (componente global)
+    
+    //vinculación con FIREBASE
+    AngularFireModule.initializeApp(environment.firebaseConfig),//inicializa firebase dentro del proyecto
+    AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
