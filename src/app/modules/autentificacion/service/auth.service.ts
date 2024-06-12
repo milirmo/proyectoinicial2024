@@ -7,11 +7,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  
   //referenciar Auth de Firebase en el servicio
 
+
   //el constructor inicializa un objeto de una clase
-  
   constructor(public auth: AngularFireAuth) { }
 
   //función para registro
@@ -32,7 +31,6 @@ export class AuthService {
     return this.auth.signOut();
 
   }
-
 
   //función para tomar UID
 }
