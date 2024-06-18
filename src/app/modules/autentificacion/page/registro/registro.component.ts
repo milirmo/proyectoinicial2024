@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from '../../service/auth.service';
 //importamos componente de rutas de angular
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
 
 @Component({
   templateUrl: './registro.component.html',
@@ -18,6 +19,7 @@ export class RegistroComponent {
   //importaciones de interfaz 'Usuario'
   constructor(
     public servicioAuth: AuthService,
+    public servicioFirestore: FirestoreService,
     public servicioRutas: Router
   ) { }
 
@@ -86,6 +88,27 @@ export class RegistroComponent {
     */
   }
 
+  async guardarUsuarios(){
+    this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+    .then(res => {
+      console.log(this.usuarios);
+    })
+    .catch(err => {
+      console.log('Error =>', err);
+    })
+
+    //constante UID captura el identificador de la BD
+    const uid = await this.servicioAuth.obtenerUID();
+
+    //se le asigna al atributo de la interfaz esta constante
+    this.usuarios.uid = uid;
+
+    //llamamos a la función que guarda usuarios
+    this.guardarUsuarios();
+
+    //llamamos a la función para limpiar inputs
+    this.limpiarInputs();
+  }
 
   //función para vaciar los inputs del formulario
   limpiarInputs() {

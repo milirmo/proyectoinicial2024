@@ -16,4 +16,35 @@ private usuariosCollection: AngularFirestoreCollection<Usuario>
     //usuariosCollection va a definir la nueva colección 'usuarios' que estaráen nuestra BD.
     this.usuariosCollection = this.database.collection<Usuario>('usuarios');
   }
+
+  agregarUsuario(usuario: Usuario, id: string){
+
+    /*
+    creamos una nueva PROMESA junto a los métodos:
+    RESOLVE: promesa resuelta = funciona correctamente
+    REJECT: promesa rechazada = ocurrió una falla
+    */
+
+    return new Promise(async (resolve, reject) => {
+      //bloque TRY encapsula la lógica RESUELTA
+      try{
+        usuario.uid = id;
+
+        /*
+        const resultado = colección de usuarios, envía como número de documento el UID 
+        y setea la información que ingresamos en el formulario de REGISTRO.
+        */
+
+        const resultado = await this.usuariosCollection.doc(id).set(usuario);
+
+        resolve(resultado);
+
+        //bloque catch encapsula la lógica RECHAZADA
+      } catch (error){
+
+        //captura una falla y la vuelve un "error"
+        reject (error);
+      }
+    })
+  }
 }

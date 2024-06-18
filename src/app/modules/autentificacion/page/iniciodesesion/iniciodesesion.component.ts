@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario'; //importamos la interfaz Usuario de models
+import { AuthService } from '../../service/auth.service'; //importamos servicio de autentificación
+import { FirestoreService } from 'src/app/modules/shared/services/firestore.service'; //importamos servicio de firestore
+import { Router } from '@angular/router'; //importamos componente de rutas de angular
 
 @Component({
   selector: 'app-iniciodesesion',
@@ -8,6 +11,8 @@ import { Usuario } from 'src/app/models/usuario'; //importamos la interfaz Usuar
 })
 export class IniciodesesionComponent {
   hide = true;
+
+/*COMENTO COLLECCIÓN DE USUARIOS LOCALES
 
   //definimos colección local de Usuarios
   public coleccionUsuariosLocales: Usuario[];
@@ -45,17 +50,8 @@ export class IniciodesesionComponent {
     ]
   }
 
-  //definimos interfaz Usuario (inicializar)
-  usuarios: Usuario = {
-    uid: '',
-    nombre: '',
-    apellido: '',
-    email: '',
-    rol: '',
-    password: ''
-  }
-
   //función para iniciar sesión de nuevos usuarios
+
   inicioSesion() {
     const credenciales = {
       uid: this.usuarios.uid,
@@ -84,8 +80,48 @@ export class IniciodesesionComponent {
 
     this.limpiarInputs();
   }
+*/
 
-  //función para vaciar los inputs del formulario
+//definimos interfaz Usuario (inicializar)
+usuarios: Usuario = {
+  uid: '',
+  nombre: '',
+  apellido: '',
+  email: '',
+  rol: '',
+  password: ''
+}
+
+
+constructor (
+  public servicioAuth: AuthService,
+  public servicioFirestore: FirestoreService,
+  public servicioRutas: Router
+){}
+
+
+//función para iniciar sesión
+async iniciarSesion(){
+  const credenciales = {
+    email: this.usuarios.email,
+    password: this.usuarios.password
+  }
+
+  const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.password)
+  .then(res => {
+    alert("¡Se pudo ingresar con éxito!");
+
+    this.servicioRutas.navigate(['/inicio']);
+  })
+  .catch(err => {
+    alert("Algo no funcionó... :(");
+
+    this.limpiarInputs
+  })
+}
+
+
+//función para vaciar los inputs del formulario
   limpiarInputs(){
     const inputs = {
       uid: this.usuarios.uid= '',
