@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
 
 //importamos servicio de autentificación
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../services/auth.service';
 //importamos componente de rutas de angular
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
+
+//importamos paquetería de criptación
+import * as Crypto from 'crypto-js';
 
 @Component({
   templateUrl: './registro.component.html',
@@ -75,6 +78,7 @@ export class RegistroComponent {
     this.limpiarInputs();
 
 
+
     /* COMENTO PUSH DE CREDENCIALES
     //agregamos la nueva info (como nuevo objeto) a la colección de usuarios
     this.coleccionUsuarios.push(credenciales)
@@ -87,6 +91,15 @@ export class RegistroComponent {
     alert("¡Registro completado! Bienvenid@.")
     */
   }
+
+  
+  /*
+  SHA256: algoritmo de hash seguro, que toma una entrada (ej:contraseña) 
+  y produce una cadena de caracteres hexadecimal que represente a su hash.
+  toString: convierte en una cadena de caracteres.
+  */
+  this.usuarios.password = CryptoJS.SHA256(this.usuarios.password).toString();
+
 
   async guardarUsuarios(){
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
