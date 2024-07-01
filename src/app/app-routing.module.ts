@@ -14,10 +14,10 @@ const routes: Routes = [
   {
     path: "", loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
   },
-  
+
   //ruta que vincula al módulo de productos y todo su contenido
   {
-    path: "", loadChildren:()=>import('./modules/productos/productos.module').then(m=>m.ProductosModule)
+    path: "", loadChildren:()=>import('./modules/producto/producto.module').then(m=>m.ProductoModule)
   },
 
   //ruta que vincula al módulo de autentificación y todo su contenido

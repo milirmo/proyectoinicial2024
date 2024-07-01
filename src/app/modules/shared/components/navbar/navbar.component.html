@@ -1,7 +1,18 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+
+
+  <!--CUANDO LA PANTALLA SEA MENOR A 700PX, SE MOSTRARÁ: -->
+
+    <button id="menuSecciones" mat-icon-button class="example-icon" [matMenuTriggerFor]="seccion">
       <mat-icon>menu</mat-icon>
     </button>
+  <mat-menu #seccion> <!--"#nombre" vincula con [matMenuTriggerFor]-->
+    <button mat-menu-item routerLink="/inicio">Inicio</button>
+    <button mat-menu-item [matMenuTriggerFor]="productos">Productos</button>
+  </mat-menu>
+
+
+  <!--CUANDO LA PANTALLA SEA MAYOR A 700px, SE MOSTRARÁ: -->
 
     <!--boton para dirigirse a la página inicio (luego se debe importar en shared.module.ts) -->
     <button mat-button routerLink="/inicio">Inicio</button>
