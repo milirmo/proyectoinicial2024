@@ -28,16 +28,17 @@
 
     <span class="example-spacer"></span>
 
-    <!--inicio de sesión y registro de un nuevo usuario -->
+    <!--inicio de sesión, registro de un nuevo usuario y cierre de sesión-->
     <button mat-button [matMenuTriggerFor]="usuario">
       <mat-icon>account_circle</mat-icon>
      </button>
       <mat-menu #usuario="matMenu">
-     <button mat-menu-item routerLink="registro">Registrarse</button>
-     <button mat-menu-item routerLink="inicio-sesion">Iniciar sesión</button>
+     <button mat-menu-item (click)="ingresar()" *ngIf="logueado" routerLink="registro">Registrarse</button>
+     <button mat-menu-item (click)="ingresar()" *ngIf="logueado" routerLink="inicio-sesion">Iniciar sesión</button>
+     <button mat-menu-item (click)="cerrarSesion()" *ngIf="deslogueado" >Cerrar sesión</button>
      </mat-menu>
 
-    <!--carrito (proximamente)-->
+    <!--carrito (próximamente)-->
     <button mat-icon-button class="example-icon carrito" aria-label="Example icon-button with heart icon">
       <mat-icon>shopping_cart</mat-icon>
     </button>
