@@ -6,9 +6,8 @@ import { AuthService } from '../../services/auth.service';
 //importamos componente de rutas de angular
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/modules/shared/services/firestore.service';
-
 //importamos paquetería de criptación
-import * as Crypto from 'crypto-js';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   templateUrl: './registro.component.html',
@@ -41,20 +40,8 @@ export class RegistroComponent {
   //creamos colección de usuarios, del tipo usuario, y lo definimos para que reciba arreglos
   coleccionUsuarios: Usuario[] = [];
 
-
   //función para registro de nuevos usuarios
   async registrarUsuarios() {
-
-    /* COMENTO CONSTANTE DE CREDENCIALES
-    //creamos constante para guardar la info. que ingrese el usuario
-    const credenciales = {
-      uid: this.usuarios.uid,
-      nombre: this.usuarios.nombre,
-      apellido: this.usuarios.apellido,
-      email: this.usuarios.email,
-      rol: this.usuarios.rol,
-      password: this.usuarios.password
-    }*/
 
     const credenciales = {
       email: this.usuarios.email,
@@ -74,56 +61,39 @@ export class RegistroComponent {
         alert("Algo salió mal al intentar registrar el nuevo usuario... \n" + error); // "\n"+error)" para mostrar el error ocurrido
       })
 
-    //llamar a la función limpiarInputs para ejecutarla
-    this.limpiarInputs();
+    //constante UID captura el identificador de la BD
+    const uid = await this.servicioAuth.obteneruid();
 
+    //se le asigna al atributo de la interfaz esta constante
+    this.usuarios.uid = uid;
 
-
-    /* COMENTO PUSH DE CREDENCIALES
-    //agregamos la nueva info (como nuevo objeto) a la colección de usuarios
-    this.coleccionUsuarios.push(credenciales)
-    */
-
-    /* COMENTO LOCALSTORANGE
-    //utilizo localstorange para almacenar la info de usuarios
-    localStorage.setItem(this.usuarios.email, JSON.stringify(credenciales));
-
-    alert("¡Registro completado! Bienvenid@.")
-    */
-  }
-
-  
   /*
   SHA256: algoritmo de hash seguro, que toma una entrada (ej:contraseña) 
   y produce una cadena de caracteres hexadecimal que represente a su hash.
   toString: convierte en una cadena de caracteres.
   */
-  this.usuarios.password = CryptoJS.SHA256(this.usuarios.password).toString();
-
-
-  async guardarUsuarios(){
-    this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
-    .then(res => {
-      console.log(this.usuarios);
-    })
-    .catch(err => {
-      console.log('Error =>', err);
-    })
-
-    //constante UID captura el identificador de la BD
-    const uid = await this.servicioAuth.obtenerUID();
-
-    //se le asigna al atributo de la interfaz esta constante
-    this.usuarios.uid = uid;
+    this.usuarios.password = CryptoJS.SHA256(this.usuarios.password).toString();
 
     //llamamos a la función que guarda usuarios
     this.guardarUsuarios();
 
     //llamamos a la función para limpiar inputs
     this.limpiarInputs();
+
   }
 
-  //función para vaciar los inputs del formulario
+  //FUNCION GUARDAR USUARIOS
+  async guardarUsuarios() {
+    this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
+      .then(res => {
+        console.log(this.usuarios);
+      })
+      .catch(err => {
+        console.log('Error =>', err);
+      })
+  }
+
+  //FUNCION VACIAR INPUTS
   limpiarInputs() {
     const inputs = {
       uid: this.usuarios.uid = '',
@@ -134,5 +104,4 @@ export class RegistroComponent {
       password: this.usuarios.password = ''
     }
   }
-
 }
