@@ -25,7 +25,7 @@ export class AuthService {
 
   //FUNCION PARA INICIAR SESION
   iniciosesion(email: string, password: string) {
-    //validar la informacion del usaurio saber si existe en la coleccion
+    //validar la informacion del usrio saber si existe en la coleccion
     return this.auth.signInWithEmailAndPassword(email, password)
   };
 
