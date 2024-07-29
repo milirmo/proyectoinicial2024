@@ -10,20 +10,30 @@ const routes: Routes = [
     path: "", component: InicioComponent
   },
   
+
   //ruta que vincula al módulo de inicio y todo su contenido
   {
     path: "", loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)
   },
+
 
   //ruta que vincula al módulo de productos y todo su contenido
   {
     path: "", loadChildren:()=>import('./modules/producto/producto.module').then(m=>m.ProductoModule)
   },
 
+
   //ruta que vincula al módulo de autentificación y todo su contenido
   {
     path: "", loadChildren:()=>import('./modules/autentificacion/autentificacion.module').then(m=>m.AutentificacionModule)
   },
+
+
+   //ruta que vincula al módulo admin y todo su contenido
+  {
+    path: "", loadChildren:()=>import('./modules/admin/admin.module').then(m=>m.AdminModule)
+  },
+  
 
 ];
 
