@@ -1,1 +1,52 @@
-<p>table works!</p>
+<!--
+tr: columnas
+th: renglones en negrita
+td: renglones sin negrita
+-->
+
+<table class="table">
+
+    <thead> <!--ENCABEZADO DE TABLA-->
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Acciones</th> <!--th para separar acciones del cuerpo de la tabla-->
+        </tr>
+
+    </thead>
+
+    <tbody> <!--CUERPO DE TABLA-->
+        <tr *ngFor="let producto of coleccionProductos">
+
+            <th scope="row">1</th>
+
+            <td>
+                <img src="{{producto.imagen}}" alt="{{producto.alt}}">
+            </td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.categoria}}</td>
+            <td>{{producto.descripcion}}</td>
+
+            <!--ACCIONES-->
+            <td>
+                <!--boton editar-->
+                <button id="btn-edit" title="Editar" type="botton" class="btn btn-outline-secondary">
+                    <mat.icon>Edit</mat.icon>
+                </button>
+
+                <!--boton eliminar-->
+                <button id="btn-delete" title="Eliminar" type="botton" class="btn btn-outline-danger">
+                    <mat.icon>Delete</mat.icon>
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
