@@ -5,7 +5,6 @@ td: renglones sin negrita
 -->
 
 <table class="table">
-
     <thead> <!--ENCABEZADO DE TABLA-->
 
         <tr>
@@ -37,16 +36,87 @@ td: renglones sin negrita
             <td>
                 <!--boton editar-->
                 <button id="btn-edit" title="Editar" type="botton" class="btn btn-outline-secondary">
-                    <mat.icon>Edit</mat.icon>
+                    <mat-icon>Editar</mat-icon>
                 </button>
 
                 <!--boton eliminar-->
                 <button id="btn-delete" title="Eliminar" type="botton" class="btn btn-outline-danger">
-                    <mat.icon>Delete</mat.icon>
+                    <mat-icon>Eliminar</mat-icon>
                 </button>
             </td>
 
         </tr>
     </tbody>
-
 </table>
+
+
+<!-- BOTÓN AGREGAR NUEVOS PRODUCTOS -->
+<button type="button" class="btn outline-primary" data-bs-toggle="modal" data-bs-target="#AgregarProducto">
+    Agregar nuevo producto
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="AgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!--TÍTULO DEL MODAL-->
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese un nuevo producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+
+            <!--CUERPO DEL MODAL-->
+
+            <div [formGroup]="producto" class="modal-body">
+                <!--nombre-->
+                <div class="mb-3">
+                    <label class="from-label">Ingrese nombre del libro:</label>
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="Ej: HARRY POTTER 1">
+                </div>
+                <!-- precio -->
+                <div class="mb-3">
+                    <label class="from-label">Ingrese precio:</label>
+                    <input class="form-control" type="number" formControlName="precio" placeholder="Ej: $1">
+                </div>
+                <!--categoría-->
+                <div class="mb-3">
+                    <label class="from-label">Seleccione género del producto:</label>
+                    <select class="form-control" formControlName="categoria">
+                        <option selected>Elija una opción</option>
+                        <option value="drama">Drama</option>
+                        <option value="ciencia-ficcion">Ciencia Ficción</option>
+                        <option value="terror">Terror</option>
+                        <option value="romance">Romance</option>
+                        <option value="policial">Policial</option>
+                        <option value="teatral">Teatral</option>
+                    </select>
+                </div>
+                <!--descripción-->
+                <div class="mb-3">
+                    <label class="from-label">Ingrese descripción del libro:</label>
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="Resumen del libro, sin detalles.">
+                </div>
+                <!--imagen-->
+                <div class="mb-3">
+                    <label class="from-label">Ingrese imagen del libro:</label>
+                    <input class="form-control" type="text" formControlName="imagen" placeholder="Link de imagen.">
+                </div>
+                <!--alt de imagen-->
+                <div class="mb-3">
+                    <label class="from-label">Ingrese nombre del producto:</label>
+                    <input class="form-control" type="text" formControlName="nombre" placeholder="Descripción de la imagen.">
+                </div>
+            </div>
+
+
+            <!--ACCIONES DEL MODAL-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="agregarProducto()">Guardar Cambios</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

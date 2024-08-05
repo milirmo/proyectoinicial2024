@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { AdminComponent } from './page/admin/admin.component';
+import { TableComponent } from './components/table/table.component';
 
 const routes: Routes = [
 
   {
-    path:"admin", component:AdminComponent
+    path:"admin", component: AdminComponent
+  },
+
+  {
+    path:"tabla", component: TableComponent
   },
   
 ];

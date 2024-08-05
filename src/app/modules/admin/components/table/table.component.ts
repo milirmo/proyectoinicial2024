@@ -13,9 +13,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'; //importo f
 export class TableComponent {
 
   //creamos coleccion local del productos y la definimo como arreglo (array)
-  coleccionProeductos: Producto[]= [];
+  coleccionProductos: Producto[]= [];
 
-  //definimos formulario ara los productos
+  //definimos formulario para los productos
   /*
   los datos se inicializan en:
   string= ''
@@ -31,5 +31,31 @@ export class TableComponent {
   })
 
   constructor(public servicioCrud: CrudService){}
+
+  ngOnInit(): void{}
+
+  async agregarProducto(){
+
+    if(this.producto.valid){
+      let nuevoProducto: Producto = {
+        idProducto: '',
+        nombre: this.producto.value.nombre!,
+        precio: this.producto.value.precio!,
+        categoria: this.producto.value.categoria!,
+        descripcion: this.producto.value.descripcion!,
+        imagen: this.producto.value.imagen!,
+        alt: this.producto.value.alt!,
+      }
+
+      await this.servicioCrud.crearProducto(nuevoProducto)
+    .then (producto=> {
+      alert("¡Nuevo producto agregado! :)")
+    })
+    .catch (error=> {
+      alert("Ocurrió un error al intentar agregar un nuevo producto...")
+    })
+
+    };
+  }
 
 }

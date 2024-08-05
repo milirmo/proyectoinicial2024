@@ -60,7 +60,7 @@ export class RegistroComponent {
           icon: "success"
         });
 
-        this.servicioRutas.navigate(['/inicio']);
+        this.servicioRutas.navigate(['/iniciodesesion']);
       })
 
       //el metodo CATCH captura una falla y devuelve un error cuando la promesa salga mal
