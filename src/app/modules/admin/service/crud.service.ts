@@ -46,7 +46,7 @@ export class CrudService {
       producto seleccionado y lo actualizamos con el método "update", enviando la 
       nueva información
     */
-    return this.database.collection('productos').doc(idProducto).update(nuevaData);
+    return this.database.collection('producto').doc(idProducto).update(nuevaData);
   }
 
   // ELIMINAR productos
@@ -54,7 +54,6 @@ export class CrudService {
     return new Promise((resolve, reject) => {
       try{
         const respuesta = this.productosCollection.doc(idProducto).delete();
-
         resolve (respuesta);
       }
       catch(error){

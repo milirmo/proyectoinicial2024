@@ -2,8 +2,32 @@
     <div class="row">
         <h1>Productos</h1>
 
+        <!--carrusel para -->
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../../../../assets/imagenes/la-nueva-vida-de-luciano-en-new-york-el-gatito-V5B4V7U6BRD5XBAUNOH7KTJW5M.avif" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" *ngFor="let producto of productosCarrusel">
+                <img src="{{producto.imagen}}" class="d-block w-100" alt="{{producto.alt}}">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+
+        <!--mostrar cards (por el orden del código, será debajo del carrousel)-->
         <div class="col">
-            <app-card></app-card>
+            <app-card
+            (productoAgregado)="productoAnadido($event)" 
+            [productoReciente]="product"
+            ></app-card>
         </div>
     </div>
 </div>
